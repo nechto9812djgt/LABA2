@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"style="
+    background-color: rgb(56, 121, 173);
+    margin-top: 15%;
+    margin-left: 33.333%;
+    margin-bottom: 5%;
+    margin-right: 33.333%;
+    border: 2px solid white;
+    border-radius: 10px;">
+<head>
+    <meta charset="UTF-8">
+    <title>Таблица</title>
+    <link rel="stylesheet" href="table.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Honk', sans-serif; font-size: larger;">
+<input type="text" id="searchInput" oninput="filter()" placeholder="Фильтр">
+<div class="big">
+    <div class="small">
+        <table id="myTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)" style="width: 30%;"><div class="container">Name</div></th>
+                    <th onclick="sortTable(1)"><div class="container">№</div></th>
+                    <th onclick="sortTable(2)"><div class="container">Parametrs</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>cat-confused</td>
+                    <td>1</td>
+                    <td>A kitten who only sleeps, we all look like him. Let's not judge.</td>
+                </tr>
+                <tr>
+                    <td>baby cat</td>
+                    <td>2</td>
+                    <td>A playful specimen that won't be boring.</td>
+                </tr>        
+                <tr>
+                    <td>a dummy cat</td>
+                    <td>3</td>
+                    <td>Well, it's definitely me.</td>
+                </tr>
+            </tbody>
+        </table>    
+    </div>
+</div>
+<script>
+function sortTable(columnIndex) {
+    const table = document.getElementById('myTable');
+    const rows = Array.from(table.querySelectorAll('tr'));
+    const sortedRows = rows.slice(1).sort((a, b) => a.children[columnIndex].textContent.localeCompare(b.children[columnIndex].textContent));
+    
+    table.tBodies[0].append(...sortedRows);
+}
+
+function filter() {
+    const filterValue = document.getElementById('searchInput').value.toUpperCase();
+    const table = document.getElementById('myTable');
+    const rows = table.getElementsByTagName('tr');
+    
+    for (let row of rows) {
+        const dataCells = row.getElementsByTagName('td');
+        let rowVisible = false;
+        
+        for (let cell of dataCells) {
+            if (cell.textContent.toUpperCase().indexOf(filterValue) > -1) {
+                rowVisible = true;
+                break;
+            }
+        }
+        row.style.display = rowVisible ? '' : 'none';
+    }
+}
+</script>
+</body>
+</html>

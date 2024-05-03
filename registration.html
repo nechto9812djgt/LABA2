@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" style="
+    background-color: rgb(56, 121, 173);
+    margin-top: 15%;
+    margin-left: 42%;
+    margin-bottom: 5%;
+    margin-right: 42%;
+    border: 2px solid white;
+    border-radius: 10px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <form>
+        <label>
+            <p>Логин</p>
+            <input type="text" required="" placeholder="Мильпопс жу-жу-жу" autocomplete>
+        </label>
+        <label>
+            <p>Пароль</p>
+            <input id="password" type="password" required="" oninput="check()">
+            <p id="message"></p>
+        </label>
+        <label>
+            <p id="hint">Пароль должен содержать минимум 10 символов: буквы и цифры</p>
+        </label>
+    </form>
+    <script>
+        function check() {
+            const password = document.getElementById('password');
+            const message = document.getElementById('message');
+            const hint = document.getElementById('hint');
+            const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,25}$/;
+
+            hint.style.display = 'none';
+            if (passwordPattern.test(password.value)) {
+                message.textContent = 'Пароль соответствует требованиям.';
+                message.style.color = '#90EE90';
+            } else {
+                message.textContent = 'Пароль должен содержать хотя бы одну цифру, одну строчную и одну прописную букву, и быть длиной от 10 до 25 символов.';
+                message.style.color = '#FA8072';
+            }
+        }
+        </script>
+</body>
+</html>

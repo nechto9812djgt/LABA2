@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" style="
+    background-color: rgb(56, 121, 173);
+    margin-top: 2%;
+    margin-left: 10%;
+    margin-bottom: 1%;
+    margin-right: 10%;
+    border: 2px solid white;
+    border-radius: 10px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab2_1</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <link rel="stylesheet" href="humburger.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <nav class="nav">
+                <ul>
+                    <li><a href="lab2.html" target="_parent">Главная</a></li>
+                    <li><a href="map.html" target="_blank">кааартааа</a></li>
+                    <li><a href="canvas.html" target="_blank">canvas</a></li>
+                    <li><a href="table.html" target="_blank">Таблица</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=8fBhNjEfxLI&pp=ygUX0YHQvNC10YjQvdGL0LUg0LrQvtGC0Ys%3D" target="_blank">еще коты</a></li>
+                    <li><a href="https://vk.com/durov" target="_blank"><img src="vk.png"></a></li>
+                    <li><a href="http://t.me/durov" target="_blank"><img src="tg.png"></a></li>
+                </ul>
+            </nav>
+            <div class="burger">
+                <span></span>
+            </div>
+        </header>
+    </div>
+    <script src="script.js"></script>
+    <h1>Коты на продажу</h1>
+    <div id="global">
+        <table>
+            <tr id="headerT">
+                <td>Название</td>
+                <td>Цена</td>
+                <td>Описание</td>
+            </tr>
+            <tr>
+                <td><ul style="list-style: georgian">
+                    <li>котик-усыпленыш</li>
+                </ul></td>
+                <td>бесценно</td>
+                <td id="tdimg"> <img src="https://i.ytimg.com/vi/-452p_9ESbM/sddefault.jpg" width="100" height="auto"></td>
+            </tr>
+            <tr>
+                <td><ul style="list-style: georgian;">
+                    <li>котик-игреныш</li>
+                </ul></td>
+                <td>бесценно</td>
+                <td id="tdimg"> <img src="https://img.freepik.com/premium-photo/a-kitten-plays-with-a-ball-of-yarn_867452-4841.jpg" width="100" height="auto"></td>
+            </tr>
+            <tr>
+                <td><ul style="list-style: georgian;">
+                    <li>котик-невдупленыш</li>
+                </ul></td>
+                <td>бесценно</td>
+                <td id="tdimg"> <img src="https://kartinki.pics/pics/uploads/posts/2022-09/1662839343_3-kartinkin-net-p-milie-malenkie-kotyata-pinterest-3.jpg" width="100" height="auto"></td>
+            </tr>
+        <div id="form">
+            <p>
+                <label for="name">Введите ФИО:</label><br>
+                <input type="text" required placeholder="ФИО">
+            </p>
+            <p>
+                <label for="email">Введите адресс доставки:</label>
+                <input type="email"required placeholder="vasyapupkin@gmail.com">
+            </p>
+            <p>
+                <label for="number">Введите кол-во товара:</label>
+                <input type="number"required min="0" max="100">
+            </p>
+            <button id="buton1" type="submit" >Отправить</button>
+            <button onclick="redirect()" id="buton2">Регистрация</button>
+        </div>    
+    </table>
+    </div>
+    <script>
+        function redirect() {
+          window.location.href = 'registration.html';
+        }
+    </script>
+    <div class="fotorama"
+    data-width="50%"
+    data-minheight="auto"
+    data-allowfullscreen="native"
+    data-autoplay="true">
+        <img src="https://i.ytimg.com/vi/-452p_9ESbM/sddefault.jpg" alt="Image 1" width="33.333%">
+        <img src="https://img.freepik.com/premium-photo/a-kitten-plays-with-a-ball-of-yarn_867452-4841.jpg" alt="Image 2" width="33.333%">
+        <img src="https://kartinki.pics/pics/uploads/posts/2022-09/1662839343_3-kartinkin-net-p-milie-malenkie-kotyata-pinterest-3.jpg" alt="Image 3" width="33.333%">
+        <img src="https://prezentacii.org/upload/cloud/18/10/84048/images/screen25.jpg" alt="Image 3" width="33.333%">
+    </div>
+    <div style="padding-top: 5%; padding-left: 10%; display: inline;">
+        <video src="lvenok.mp4" controls>этот браузер не поддерживает((</video>
+        <div class="dnd">
+            <div id="draggable1" draggable="true" class="item">Перетащите меня 1</div>
+            <div id="draggable2" draggable="true" class="item">Перетащите меня 2</div>
+            <div id="droppable" class="dropzone">Сюда перенесите</div>
+        </div>       
+        <audio src="krovostok.mp3" controls>не поддерживается</audio>
+    </div>
+    <script src="dnd.js"></script>    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>анимация на canvas</title>
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+    }
+    canvas {
+        display: block;
+    }
+</style>
+</head>
+<body>
+<canvas id="myCanvas"></canvas>
+<script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let x = Math.random() * canvas.width;
+    let y = Math.random() * canvas.height;
+    let dx = (Math.random() - 0.5) * 25; // Скорость по оси X
+    let dy = (Math.random() - 0.5) * 25; // Скорость по оси Y
+    let radius = 150;
+
+    const img = new Image();
+    img.src = 'https://img-fotki.yandex.ru/get/196102/32719266.33/0_11f851_ab545d69_orig.jpg'; // Укажите URL вашего изображения здесь
+
+    function drawCircle() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Очистить канвас перед рисованием
+        ctx.drawImage(img, x-20, 80, 150, 150); // Рисуем изображение вместо круга
+
+        if (x + dx > canvas.width - radius || x + dx < radius) {
+            dx = -dx;
+        }
+        if (y + dy > canvas.height - radius || y + dy < radius) {
+            dy = -dy;
+        }
+
+        x += dx;
+        y += dy;
+
+        requestAnimationFrame(drawCircle); // Повторить анимацию
+    }
+    img.onload = function() {
+        drawCircle();
+    };
+</script>
+</body>
+</html>
